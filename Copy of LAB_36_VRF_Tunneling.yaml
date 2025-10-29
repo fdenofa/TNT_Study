@@ -1,0 +1,557 @@
+annotations:
+  - border_color: '#808080FF'
+    border_style: ''
+    color: '#FFFFFFFF'
+    line_end: null
+    line_start: null
+    thickness: 1
+    type: line
+    x1: -160.0
+    y1: 200.0
+    x2: -160.0
+    y2: 200.0
+    z_index: 0
+  - border_color: '#0C73E9FF'
+    border_style: 4,2
+    color: '#FFFFFFFF'
+    line_end: null
+    line_start: null
+    thickness: 3
+    type: line
+    x1: 200.0
+    y1: 200.0
+    x2: -160.0
+    y2: 200.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#0E3FF0FF'
+    rotation: 0
+    text_bold: false
+    text_content: Tun0:10.100.100.0/24
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -72.0
+    y1: 172.0
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 305
+    text_bold: false
+    text_content: 10.10.1.0/24
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -145.0
+    y1: 122.0
+    z_index: 3
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 50
+    text_bold: false
+    text_content: 10.10.2.0/24
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 101.00000000000003
+    y1: 30.999999999999986
+    z_index: 3
+nodes:
+  - boot_disk_size: null
+    configuration: hostname inserthostname-here
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: ISP
+    node_definition: iosv
+    ram: null
+    tags: []
+    x: 0
+    y: -40
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        slot: 0
+        type: physical
+      - id: i2
+        label: GigabitEthernet0/1
+        slot: 1
+        type: physical
+      - id: i3
+        label: GigabitEthernet0/2
+        slot: 2
+        type: physical
+      - id: i4
+        label: GigabitEthernet0/3
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration: |-
+      Building configuration...
+
+      Current configuration : 2993 bytes
+      !
+      ! Last configuration change at 15:56:25 UTC Thu Mar 27 2025
+      !
+      version 15.9
+      service timestamps debug datetime msec
+      service timestamps log datetime msec
+      no service password-encryption
+      !
+      hostname R20
+      !
+      boot-start-marker
+      boot-end-marker
+      !
+      !
+      no logging console
+      !
+      no aaa new-model
+      !
+      !
+      !
+      mmi polling-interval 60
+      no mmi auto-configure
+      no mmi pvc
+      mmi snmp-timeout 180
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      ip cef
+      no ipv6 cef
+      !
+      multilink bundle-name authenticated
+      !
+      !
+      !
+      !
+      !
+      redundancy
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      interface GigabitEthernet0/0
+       no ip address
+       shutdown
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      interface GigabitEthernet0/1
+       no ip address
+       shutdown
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      interface GigabitEthernet0/2
+       ip address 10.10.2.20 255.255.255.0
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      interface GigabitEthernet0/3
+       no ip address
+       shutdown
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      ip forward-protocol nd
+      !
+      !
+      no ip http server
+      no ip http secure-server
+      !
+      ipv6 ioam timestamp
+      !
+      !
+      !
+      control-plane
+      !
+      banner exec ^C
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+      banner incoming ^C
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+      banner login ^C
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+      !
+      line con 0
+       exec-timeout 0 0
+      line aux 0
+      line vty 0 4
+       exec-timeout 0 0
+       login
+       transport input none
+      !
+      no scheduler allocate
+      !
+      end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: R20
+    node_definition: iosv
+    ram: null
+    tags: []
+    x: 200
+    y: 200
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        slot: 0
+        type: physical
+      - id: i2
+        label: GigabitEthernet0/1
+        slot: 1
+        type: physical
+      - id: i3
+        label: GigabitEthernet0/2
+        slot: 2
+        type: physical
+      - id: i4
+        label: GigabitEthernet0/3
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration: |-
+      Building configuration...
+
+      Current configuration : 2993 bytes
+      !
+      ! Last configuration change at 15:57:06 UTC Thu Mar 27 2025
+      !
+      version 15.9
+      service timestamps debug datetime msec
+      service timestamps log datetime msec
+      no service password-encryption
+      !
+      hostname R10
+      !
+      boot-start-marker
+      boot-end-marker
+      !
+      !
+      no logging console
+      !
+      no aaa new-model
+      !
+      !
+      !
+      mmi polling-interval 60
+      no mmi auto-configure
+      no mmi pvc
+      mmi snmp-timeout 180
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      ip cef
+      no ipv6 cef
+      !
+      multilink bundle-name authenticated
+      !
+      !
+      !
+      !
+      !
+      redundancy
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      !
+      interface GigabitEthernet0/0
+       no ip address
+       shutdown
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      interface GigabitEthernet0/1
+       ip address 10.10.1.10 255.255.255.0
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      interface GigabitEthernet0/2
+       no ip address
+       shutdown
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      interface GigabitEthernet0/3
+       no ip address
+       shutdown
+       duplex auto
+       speed auto
+       media-type rj45
+      !
+      ip forward-protocol nd
+      !
+      !
+      no ip http server
+      no ip http secure-server
+      !
+      ipv6 ioam timestamp
+      !
+      !
+      !
+      control-plane
+      !
+      banner exec ^C
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+      banner incoming ^C
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+      banner login ^C
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+      !
+      line con 0
+       exec-timeout 0 0
+      line aux 0
+      line vty 0 4
+       exec-timeout 0 0
+       login
+       transport input none
+      !
+      no scheduler allocate
+      !
+      end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: R10
+    node_definition: iosv
+    ram: null
+    tags: []
+    x: -160
+    y: 200
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        slot: 0
+        type: physical
+      - id: i2
+        label: GigabitEthernet0/1
+        slot: 1
+        type: physical
+      - id: i3
+        label: GigabitEthernet0/2
+        slot: 2
+        type: physical
+      - id: i4
+        label: GigabitEthernet0/3
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration: hostname inserthostname-here
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: null
+    label: Sw10
+    node_definition: iosvl2
+    ram: null
+    tags: []
+    x: -160
+    y: 400
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        slot: 0
+        type: physical
+      - id: i2
+        label: GigabitEthernet0/1
+        slot: 1
+        type: physical
+      - id: i3
+        label: GigabitEthernet0/2
+        slot: 2
+        type: physical
+      - id: i4
+        label: GigabitEthernet0/3
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration: hostname inserthostname-here
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n4
+    image_definition: null
+    label: Sw20
+    node_definition: iosvl2
+    ram: null
+    tags: []
+    x: 200
+    y: 400
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        slot: 0
+        type: physical
+      - id: i2
+        label: GigabitEthernet0/1
+        slot: 1
+        type: physical
+      - id: i3
+        label: GigabitEthernet0/2
+        slot: 2
+        type: physical
+      - id: i4
+        label: GigabitEthernet0/3
+        slot: 3
+        type: physical
+links:
+  - id: l0
+    n1: n0
+    n2: n1
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: ISP-GigabitEthernet0/2<->R20-GigabitEthernet0/2
+  - id: l1
+    n1: n0
+    n2: n2
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: ISP-GigabitEthernet0/1<->R10-GigabitEthernet0/1
+  - id: l2
+    n1: n2
+    n2: n3
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R10-GigabitEthernet0/0<->Sw10-GigabitEthernet0/0
+  - id: l3
+    n1: n1
+    n2: n4
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R20-GigabitEthernet0/0<->Sw20-GigabitEthernet0/0
+lab:
+  description: ''
+  notes: ''
+  title: LAB 36 VRF Tunneling
+  version: 0.2.1
